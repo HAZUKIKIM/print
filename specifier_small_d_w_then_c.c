@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 17:26:32 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:07:55 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 17:50:42 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int w_is_biggest_c_is_second_positive_with_flag(char *save_f, int *w_n_p, intmax
    if (flag_check(save_f, '0') && w_n_p[1] == -1)
     {
         i = put_flag(save_f, i);
-        while (i < (w_n_p[0] - count3(num, w_n_p)))
+        while (i < (w_n_p[0] - count6(num, w_n_p)))
             i = put_zero(i);
     }
     else
     {
-        while (i < (w_n_p[0] - count3(num, w_n_p) - 1))
+        while (i < (w_n_p[0] - count6(num, w_n_p) - 1))
             i = put_space(i);
         put_flag(save_f, i);
     }
@@ -37,12 +37,12 @@ int w_is_biggest_c_is_second_positive(char *save_f, int *w_n_p, intmax_t num, in
     {
         if (flag_check(save_f, '0') && w_n_p[1] == -1)
         {
-            while (i < (w_n_p[0] - count3(num, w_n_p)))
+            while (i < (w_n_p[0] - count6(num, w_n_p)))
                 i = put_zero(i);
         }
         else
         {
-            while (i < (w_n_p[0] - count3(num, w_n_p)))
+            while (i < (w_n_p[0] - count6(num, w_n_p)))
                 i = put_space(i);
         }
     }
@@ -62,12 +62,12 @@ int w_is_biggest_c_is_second(char *save_f, int *w_n_p, intmax_t num)
         {
             ft_putchar('-');
             i++;
-            while (i < (w_n_p[0] - count3(num, w_n_p)))
+            while (i < (w_n_p[0] - count6(num, w_n_p)))
                 i = put_zero(i);
         }
         else
         {
-            while (i < (w_n_p[0] - count3(num, w_n_p) - 1))
+            while (i < (w_n_p[0] - count6(num, w_n_p) - 1))
                 i = put_space(i);
             ft_putchar('-');
             i++;
@@ -94,13 +94,13 @@ int w_is_biggest_c_is_second_with_m_positive(char *save_f, int *w_n_p, intmax_t 
         i = put_flag(save_f, i);
         ft_putnumber(num);
         j = i;
-        while (i < (w_n_p[0] - count3(num, w_n_p) - 1 + j))
+        while (i < (w_n_p[0] - count6(num, w_n_p) - 1 + j))
             i = put_space(i);
     } 
     else
     {
         ft_putnumber(num);
-        while(i < (w_n_p[0] - count3(num, w_n_p)))
+        while(i < (w_n_p[0] - count6(num, w_n_p)))
             i = put_space(i);
     }
     return (i);
@@ -117,7 +117,7 @@ int w_is_biggest_c_is_second_with_m_negative(char *save_f, int *w_n_p, intmax_t 
     num = num * -1;
     ft_putnumber(num);
     j = i;
-    while (i < (w_n_p[0] - count3(num, w_n_p) - 1 + j))
+    while (i < (w_n_p[0] - count6(num, w_n_p) - 1 + j))
         i = put_space(i);
     return (i);
 }

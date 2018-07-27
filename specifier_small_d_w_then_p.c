@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 17:25:07 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:01:25 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 17:50:49 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int w_is_biggest_p_is_second(char *save_f, int *w_n_p, intmax_t num)
         num = num * -1;
     }
     j = i;
-    while (i < (w_n_p[1] - count3(num, w_n_p) + j))
+    while (i < (w_n_p[1] - count6(num, w_n_p) + j))
         i = put_zero(i);
     ft_putnumber(num);
     return (i);
@@ -62,7 +62,7 @@ int w_is_biggest_p_is_second_with_m_positive(char *save_f, int *w_n_p, intmax_t 
     {
         i = put_flag(save_f, i);
         j = i;
-        while(i < (w_n_p[1] - count3(num, w_n_p) + j))
+        while(i < (w_n_p[1] - count6(num, w_n_p) + j))
             i = put_zero(i);
         ft_putnumber(num);
         j = i;
@@ -71,7 +71,7 @@ int w_is_biggest_p_is_second_with_m_positive(char *save_f, int *w_n_p, intmax_t 
     } 
     else
     {
-        while(i < (w_n_p[1] - count3(num, w_n_p)))
+        while(i < (w_n_p[1] - count6(num, w_n_p)))
             i = put_zero(i);
         ft_putnumber(num);
         j = i;
@@ -90,7 +90,7 @@ int w_is_biggest_p_is_second_with_m_negative(char *save_f, int *w_n_p, intmax_t 
     ft_putchar('-');
     i++;
     j = i;
-    while (i < (w_n_p[1] - count3(num, w_n_p) + j))
+    while (i < (w_n_p[1] - count6(num, w_n_p) + j))
         i = put_zero(i);
     num = num * -1;
     ft_putnumber(num);
