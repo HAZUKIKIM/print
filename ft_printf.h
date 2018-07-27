@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 15:49:24 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:58:41 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:15:13 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int capital_x_w_is_biggest_p_is_second_with_m(char *save_f, int *w_n_p, uintmax_
 int capital_x_w_is_biggest_c_is_second(char *save_f, int *w_n_p, uintmax_t num);
 int capital_x_w_is_biggest_c_is_second_with_m(char *save_f, int *w_n_p, uintmax_t num);
 
-int o_put_flag(char *save_f, int i);
+int o_put_flag(char *save_f, int i, uintmax_t num);
 int o_c_is_biggest(char *save_f, int *w_n_p, uintmax_t num);
 int o_p_is_biggest(char *save_f, int *w_n_p, uintmax_t num);
 int specifier_small_o(va_list ap, char *save_f, int *w_n_p, char *save_l);

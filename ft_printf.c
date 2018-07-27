@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 22:17:58 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:28:42 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:16:46 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,14 @@ int ft_printf(const char* str, ...)
 
 // int main(void)
 // {   
-//     // uintmax_t a;
-//     // uintmax_t b;
+//     uintmax_t a;
+//     uintmax_t b;
 
-//     ft_printf("%lu", -42);
+//     a = ft_printf("%#o", 0);
 //     printf("\n");
-//     printf("%lu", -42);
+//     b = printf("%#o", 0);
 //     printf("\n");
-//     // printf("%d\n%d\n", a, b);
+//     printf("%d\n%d\n", a, b);
 
 //     return (0);
 // }

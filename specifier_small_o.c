@@ -6,15 +6,15 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 09:36:32 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 16:44:21 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:14:39 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int o_put_flag(char *save_f, int i)
+int o_put_flag(char *save_f, int i, uintmax_t num)
 {
-    if (flag_check(save_f, '#'))
+    if (flag_check(save_f, '#') && num != 0)
     {
         ft_putchar('0');
         i++;
@@ -27,11 +27,11 @@ int o_c_is_biggest(char *save_f, int *w_n_p, uintmax_t num)
     int i;
     
     i = 0;
-    i = o_put_flag(save_f, i);
     if (num == 0 && w_n_p[1] == 0)
         return(i);
     else
     {
+        i = o_put_flag(save_f, i,num);
         small_o_ft_putnumber(num);
         return (i);
     }
@@ -45,7 +45,7 @@ int o_p_is_biggest(char *save_f, int *w_n_p, uintmax_t num)
     i = 0;
     if (flag_check(save_f, '#'))
     {
-        i = o_put_flag(save_f, i);
+        i = o_put_flag(save_f, i,num);
         j = i;
         while(i < (w_n_p[1] - count5(num, w_n_p) + j))
         {

@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 16:16:46 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:58:08 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:07:49 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,7 @@ char *put_str(char *str)
 
 void	ft_putnumber(uintmax_t n)
 {
-	if (n < 0)
-	{
-		ft_putchar('-');
-		ft_putnumber(-n);
-	}
-	else if (n >= 10)
+	if (n >= 10)
 	{
 		ft_putnumber(n / 10);
 		ft_putnumber(n % 10);

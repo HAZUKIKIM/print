@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 10:34:08 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 16:55:35 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:16:38 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int o_w_is_biggest_p_is_second(char *save_f, int *w_n_p, uintmax_t num)
     {
         while (i < (w_n_p[0] - w_n_p[1]))
             i = put_space(i);
-        i = o_put_flag(save_f, i);
+        i = o_put_flag(save_f, i,num);
         j = i;
         while(i < (w_n_p[1] - count5(num, w_n_p)) - 1 + j)
             i = put_zero(i);
@@ -47,7 +47,7 @@ int o_w_is_biggest_p_is_second_with_m(char *save_f, int *w_n_p, uintmax_t num)
     i = 0;
     if (flag_check(save_f, '#'))
     {
-        i = o_put_flag(save_f, i);
+        i = o_put_flag(save_f, i,num);
         j = i;
         while(i < (w_n_p[1] - count5(num, w_n_p) + j))
             i = put_zero(i);
@@ -77,7 +77,7 @@ int o_w_is_biggest_c_is_second(char *save_f, int *w_n_p, uintmax_t num)
     {
         if (flag_check(save_f, '0'))
         {
-            i = o_put_flag(save_f, i);
+            i = o_put_flag(save_f, i,num);
             while (i < (w_n_p[0] - count5(num, w_n_p)))
                 i = put_zero(i);
         }
@@ -85,7 +85,7 @@ int o_w_is_biggest_c_is_second(char *save_f, int *w_n_p, uintmax_t num)
         {
             while (i < (w_n_p[0] - count5(num, w_n_p) - 1))
                 i = put_space(i);
-            i = o_put_flag(save_f, i);
+            i = o_put_flag(save_f, i,num);
         }
     }
     else
@@ -118,7 +118,7 @@ int o_w_is_biggest_c_is_second_with_m(char *save_f, int *w_n_p, uintmax_t num)
     i = 0;
     if (flag_check(save_f, '#'))
     {
-        i = o_put_flag(save_f, i);
+        i = o_put_flag(save_f, i,num);
         small_o_ft_putnumber(num);
         while (i < (w_n_p[0] - count5(num, w_n_p)))
             i = put_space(i);
