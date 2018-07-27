@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 15:49:24 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:53:48 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 17:58:41 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void put_and_free(void *a);
 void ft_putchar(char c);
 wchar_t *put_st(wchar_t *w);
 char *put_str(char *str);
-void	ft_putnumber(intmax_t n);
+void	ft_putnumber(uintmax_t n);
+void	d_ft_putnumber(intmax_t n);
 void	x_ft_putnumber(uintmax_t n);
 void	capital_x_ft_putnumber(uintmax_t n);
 void	small_o_ft_putnumber(uintmax_t n);

@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 12:21:20 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:51:04 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:00:19 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int put_zero(int i)
 {
-    ft_putnumber(0);
+    d_ft_putnumber(0);
     i++;
     return (i);  
 }
@@ -32,7 +32,7 @@ int c_is_biggest(char *save_f, int *w_n_p, intmax_t num)
         return(i);
     else
     {
-        ft_putnumber(num);
+        d_ft_putnumber(num);
         return (i);
     }
 }
@@ -49,7 +49,7 @@ int p_is_biggest(char *save_f, int *w_n_p, intmax_t num)
         j = i;
         while(i < (w_n_p[1] - count6(num, w_n_p) + j))
         {
-            ft_putnumber(0);
+            d_ft_putnumber(0);
             i++;
         }
     }
@@ -59,12 +59,12 @@ int p_is_biggest(char *save_f, int *w_n_p, intmax_t num)
         i++;
         while (i < (w_n_p[1] - count6(num, w_n_p) + 1))
         {
-            ft_putnumber(0);
+            d_ft_putnumber(0);
             i++;
         }
         num = num * -1;
     }
-    ft_putnumber(num);
+    d_ft_putnumber(num);
     return (i);
 }
 
