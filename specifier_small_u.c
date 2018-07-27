@@ -6,19 +6,19 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 12:11:59 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:15:18 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:51:40 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int u_c_is_biggest(char *save_f, int *w_n_p, uintmax_t num)
+int u_c_is_biggest(uintmax_t num)
 {
     ft_putnumber(num);
     return (0);
 }
 
-int u_p_is_biggest(char *save_f, int *w_n_p, uintmax_t num)
+int u_p_is_biggest(int *w_n_p, uintmax_t num)
 {
     int i;
     
@@ -94,9 +94,9 @@ int specifier_small_u(va_list ap, char *save_f, int *w_n_p, char *save_l)
 
     num = length_x(save_l, ap);
     if (count3(num, w_n_p) >= w_n_p[0] && count3(num, w_n_p) >= w_n_p[1])
-        i = count3(num, w_n_p) + u_c_is_biggest(save_f, w_n_p, num);
+        i = count3(num, w_n_p) + u_c_is_biggest(num);
     else if (w_n_p[1] > count3(num, w_n_p) && w_n_p[1] >= w_n_p[0]) 
-        i = count3(num, w_n_p) + u_p_is_biggest(save_f, w_n_p, num);
+        i = count3(num, w_n_p) + u_p_is_biggest(w_n_p, num);
     else if (w_n_p[0] > count3(num, w_n_p) && w_n_p[0] > w_n_p[1] && w_n_p[1] >= count3(num, w_n_p))
         i = count3(num, w_n_p) + u_w_is_biggest_p_is_second(save_f, w_n_p, num);
     else

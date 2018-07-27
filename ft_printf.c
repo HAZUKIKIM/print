@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 22:17:58 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 18:16:46 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:43:23 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ int ft_printf(const char* str, ...)
             if (str[i] == 'c')
                 count += specifier_small_c(ap, save_f, w_n_p, save_l);
             else if (str[i] == 'C')
-                count += specifier_capital_c(ap, save_f, w_n_p, save_l);
+                count += specifier_capital_c(ap, save_f, w_n_p);
             else if (str[i] == 's')
                 count += specifier_small_s(ap, save_f, w_n_p, save_l);
             else if (str[i] == 'S')
-                count += specifier_capital_s(ap, save_f, w_n_p, save_l);
+                count += specifier_capital_s(ap, save_f, w_n_p);
             else if (str[i] == 'd')
                 count += specifier_small_d(ap, save_f, w_n_p, save_l);
             else if (str[i] == 'D')
-                count += specifier_capital_d(ap, save_f, w_n_p, save_l);
+                count += specifier_capital_d(ap, save_f, w_n_p);
             else if (str[i] == 'x')
                 count += specifier_small_x(ap, save_f, w_n_p, save_l);
             else if (str[i] == 'X')
@@ -63,15 +63,15 @@ int ft_printf(const char* str, ...)
             else if (str[i] == 'o')
                 count += specifier_small_o(ap, save_f, w_n_p, save_l);
             else if (str[i] == 'O')
-                count += specifier_capital_o(ap, save_f, w_n_p, save_l);
+                count += specifier_capital_o(ap, save_f, w_n_p);
             else if (str[i] == 'u')
                 count += specifier_small_u(ap, save_f, w_n_p, save_l);
             else if (str[i] == 'U')
-                count += specifier_capital_u(ap, save_f, w_n_p, save_l);
+                count += specifier_capital_u(ap, save_f, w_n_p);
             else if (str[i] == 'i')
                 count += specifier_small_d(ap, save_f, w_n_p, save_l);
             else if (str[i] == 'p')
-                count += specifier_small_p(ap, save_f, w_n_p, save_l);
+                count += specifier_small_p(ap, save_f, w_n_p);
             else if (str[i] == '%')
                 count += specifier_percentage(save_f, w_n_p);
         }

@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 23:49:35 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 16:29:24 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:30:28 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int capital_x_put_flag(char *save_f, int i)
     return (i);
 }
 
-int capital_x_c_is_biggest(char *save_f, int *w_n_p, uintmax_t num)
+int capital_x_c_is_biggest(char *save_f, uintmax_t num)
 {
     int i;
     
@@ -57,7 +57,7 @@ int specifier_capital_x(va_list ap, char *save_f, int *w_n_p, char *save_l)
 
     num = length_x(save_l, ap);
     if (count4(num, w_n_p) >= w_n_p[0] && count4(num, w_n_p) >= w_n_p[1])
-        i = count4(num, w_n_p) + capital_x_c_is_biggest(save_f, w_n_p, num);
+        i = count4(num, w_n_p) + capital_x_c_is_biggest(save_f, num);
     else if (w_n_p[1] > count4(num, w_n_p) && w_n_p[1] >= w_n_p[0]) 
         i = count4(num, w_n_p) + capital_x_p_is_biggest(save_f, w_n_p, num);
     else if (w_n_p[0] > count4(num, w_n_p) && w_n_p[0] > w_n_p[1] && w_n_p[1] >= count4(num, w_n_p) && flag_check(save_f, '-'))

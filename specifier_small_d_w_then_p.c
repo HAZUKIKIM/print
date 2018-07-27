@@ -6,13 +6,13 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 17:25:07 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 18:01:50 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:36:48 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int w_is_biggest_p_is_second_positive(char *save_f, int *w_n_p, intmax_t num, int i)
+int w_is_biggest_p_is_second_positive(char *save_f, int *w_n_p, int i)
 {
     if (flag_check(save_f, '+'))
     {
@@ -36,7 +36,7 @@ int w_is_biggest_p_is_second(char *save_f, int *w_n_p, intmax_t num)
     
     i = 0;
     if (num >= 0)
-        i = w_is_biggest_p_is_second_positive(save_f, w_n_p, num, i);
+        i = w_is_biggest_p_is_second_positive(save_f, w_n_p, i);
     else
     {
         while (i < (w_n_p[0] - w_n_p[1] - 1))
@@ -81,7 +81,7 @@ int w_is_biggest_p_is_second_with_m_positive(char *save_f, int *w_n_p, intmax_t 
     return (i);
 }
 
-int w_is_biggest_p_is_second_with_m_negative(char *save_f, int *w_n_p, intmax_t num)
+int w_is_biggest_p_is_second_with_m_negative(int *w_n_p, intmax_t num)
 {
     int i;
     int j;
@@ -105,5 +105,5 @@ int w_is_biggest_p_is_second_with_m(char *save_f, int *w_n_p, intmax_t num)
     if (num >= 0)
         return (w_is_biggest_p_is_second_with_m_positive(save_f, w_n_p, num));
     else
-        return (w_is_biggest_p_is_second_with_m_negative(save_f, w_n_p, num));
+        return (w_is_biggest_p_is_second_with_m_negative(w_n_p, num));
 }

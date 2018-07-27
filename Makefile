@@ -6,7 +6,7 @@
 #    By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/22 10:53:12 by hmiyake           #+#    #+#              #
-#    Updated: 2018/07/25 22:50:25 by hmiyake          ###   ########.fr        #
+#    Updated: 2018/07/26 18:19:58 by hmiyake          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INCLUDES = ft_printf.h
 all: $(NAME)
 
 $(NAME):
-	@gcc -c $(SRCS) -I$(INCLUDES)
+	@gcc -Wall -Werror -Wextra -c $(SRCS) -I$(INCLUDES)
 	@ar rc $(NAME) $(SRCO)
 	@ranlib $(NAME)
 clean:

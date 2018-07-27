@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 10:34:08 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 18:16:38 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:38:51 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,6 @@ int o_w_is_biggest_c_is_second(char *save_f, int *w_n_p, uintmax_t num)
 int o_w_is_biggest_c_is_second_with_m(char *save_f, int *w_n_p, uintmax_t num)
 {
     int i;
-    int j;
     
     i = 0;
     if (flag_check(save_f, '#'))

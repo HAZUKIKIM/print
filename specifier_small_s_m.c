@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 12:37:39 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/25 22:22:10 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:59:18 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int minus_n_no_l_2(va_list ap, char *s, int *w_n_p)
 
     s = (char *)va_arg(ap, wchar_t *);
     count = count2(s);
+    a = NULL;
     if (w_n_p[0] == 0 && w_n_p[1] == -1)
         return (nothing(s, count));
     else if (w_n_p[0] >= w_n_p[1] && w_n_p[0] >= count)

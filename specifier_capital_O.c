@@ -6,13 +6,13 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 11:52:38 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:41:14 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:21:48 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int specifier_capital_o(va_list ap, char *save_f, int *w_n_p, char *save_l)
+int specifier_capital_o(va_list ap, char *save_f, int *w_n_p)
 {
     uintmax_t num;
     int i;

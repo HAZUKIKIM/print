@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 15:49:24 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 18:15:13 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:49:09 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int no_minus_n_l(va_list ap, wint_t w, int *w_n_p, int i);
 int no_minus_n_no_l(va_list ap, unsigned char c, int *w_n_p, int i);
 int specifier_small_c(va_list ap, char *save_f, int *w_n_p, char *save_l);
 
-int specifier_capital_c(va_list ap, char *save_f, int *w_n_p, char *save_l);
+int specifier_capital_c(va_list ap, char *save_f, int *w_n_p);
 
 int count1(wchar_t *w);
 int count2(char *s);
@@ -95,7 +95,7 @@ int m_n_l_w_is_biggest(wchar_t *w, int *w_n_p, int count, wchar_t *a);
 int m_n_l_p_is_biggest(wchar_t *w, int *w_n_p, int count, wchar_t *a);
 int m_n_l_c_is_biggest(wchar_t *w, int *w_n_p, int count, wchar_t *a);
 
-int specifier_capital_s(va_list ap, char *save_f, int *w_n_p, char *save_l);
+int specifier_capital_s(va_list ap, char *save_f, int *w_n_p);
 
 intmax_t length_d(char *save_l, va_list ap);
 int flag_check(char *save_f, char flag);
@@ -107,19 +107,19 @@ int p_is_biggest(char *save_f, int *w_n_p, intmax_t num);
 int c_is_biggest(char *save_f, int *w_n_p, intmax_t num);
 int specifier_small_d(va_list ap, char *save_f, int *w_n_p, char *save_l);
 
-int w_is_biggest_p_is_second_positive(char *save_f, int *w_n_p, intmax_t num, int i);
+int w_is_biggest_p_is_second_positive(char *save_f, int *w_n_p, int i);
 int w_is_biggest_p_is_second(char *save_f, int *w_n_p, intmax_t num);
 int w_is_biggest_p_is_second_with_m(char *save_f, int *w_n_p, intmax_t num);
 int w_is_biggest_p_is_second_with_m_positive(char *save_f, int *w_n_p, intmax_t num);
-int w_is_biggest_p_is_second_with_m_negative(char *save_f, int *w_n_p, intmax_t num);
+int w_is_biggest_p_is_second_with_m_negative(int *w_n_p, intmax_t num);
 
 int w_is_biggest_c_is_second_positive(char *save_f, int *w_n_p, intmax_t num, int i);
 int w_is_biggest_c_is_second(char *save_f, int *w_n_p, intmax_t num);
 int w_is_biggest_c_is_second_with_m(char *save_f, int *w_n_p, intmax_t num);
 int w_is_biggest_c_is_second_with_m_positive(char *save_f, int *w_n_p, intmax_t num);
-int w_is_biggest_c_is_second_with_m_negative(char *save_f, int *w_n_p, intmax_t num);
+int w_is_biggest_c_is_second_with_m_negative(int *w_n_p, intmax_t num);
 
-int specifier_capital_d(va_list ap, char *save_f, int *w_n_p, char *save_l);
+int specifier_capital_d(va_list ap, char *save_f, int *w_n_p);
 
 uintmax_t length_x(char *save_l, va_list ap);
 int x_put_flag(char *save_f, int i, uintmax_t num);
@@ -133,7 +133,7 @@ int x_w_is_biggest_c_is_second(char *save_f, int *w_n_p, uintmax_t num);
 int x_w_is_biggest_c_is_second_with_m(char *save_f, int *w_n_p, uintmax_t num);
 
 int capital_x_put_flag(char *save_f, int i);
-int capital_x_c_is_biggest(char *save_f, int *w_n_p, uintmax_t num);
+int capital_x_c_is_biggest(char *save_f, uintmax_t num);
 int capital_x_p_is_biggest(char *save_f, int *w_n_p, uintmax_t num);
 int specifier_capital_x(va_list ap, char *save_f, int *w_n_p, char *save_l);
 
@@ -152,20 +152,20 @@ int o_w_is_biggest_p_is_second_with_m(char *save_f, int *w_n_p, uintmax_t num);
 int o_w_is_biggest_c_is_second(char *save_f, int *w_n_p, uintmax_t num);
 int o_w_is_biggest_c_is_second_with_m(char *save_f, int *w_n_p, uintmax_t num);
 
-int specifier_capital_o(va_list ap, char *save_f, int *w_n_p, char *save_l);
+int specifier_capital_o(va_list ap, char *save_f, int *w_n_p);
 
-int u_c_is_biggest(char *save_f, int *w_n_p, uintmax_t num);
-int u_p_is_biggest(char *save_f, int *w_n_p, uintmax_t num);
+int u_c_is_biggest(uintmax_t num);
+int u_p_is_biggest(int *w_n_p, uintmax_t num);
 int u_w_is_biggest_p_is_second(char *save_f, int *w_n_p, uintmax_t num);
 int u_w_is_biggest_c_is_second(char *save_f, int *w_n_p, uintmax_t num);
 int specifier_small_u(va_list ap, char *save_f, int *w_n_p, char *save_l);
 
-int specifier_capital_u(va_list ap, char *save_f, int *w_n_p, char *save_l);
+int specifier_capital_u(va_list ap, char *save_f, int *w_n_p);
 
-void p_put_flag(char *save_f);
-void p_c_is_bigger(char *save_f, int *w_n_p, uintmax_t num);
+void p_put_flag(void);
+void p_c_is_bigger(uintmax_t num);
 void p_w_is_bigger(char *save_f, int *w_n_p, uintmax_t num);
-int specifier_small_p(va_list ap, char *save_f, int *w_n_p, char *save_l);
+int specifier_small_p(va_list ap, char *save_f, int *w_n_p);
 
 int specifier_percentage_with_flag(char *save_f, int *w_n_p);
 int specifier_percentage(char *save_f, int *w_n_p);

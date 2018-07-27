@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 16:10:28 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 13:19:17 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:57:52 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int specifier_small_c(va_list ap, char *save_f, int *w_n_p, char *save_l)
     int i;
 
     i = 0;
+    w = 0;
+    c = '\0';
     if (find_minus(save_f))
     {
         if (save_l[0] == 'l' && save_l[1] == '\0')

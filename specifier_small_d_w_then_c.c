@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 17:26:32 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 18:02:22 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 18:33:28 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int w_is_biggest_c_is_second_with_m_positive(char *save_f, int *w_n_p, intmax_t 
     return (i);
 }
 
-int w_is_biggest_c_is_second_with_m_negative(char *save_f, int *w_n_p, intmax_t num)
+int w_is_biggest_c_is_second_with_m_negative(int *w_n_p, intmax_t num)
 {
     int i;
     int j;
