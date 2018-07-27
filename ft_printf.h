@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 15:49:24 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/26 17:52:19 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/07/26 17:53:48 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ int specifier_capital_c(va_list ap, char *save_f, int *w_n_p, char *save_l);
 
 int count1(wchar_t *w);
 int count2(char *s);
-int count3(intmax_t num, int *w_n_p);
+int count3(uintmax_t num, int *w_n_p);
 int count4(uintmax_t num, int *w_n_p);
 int count5(uintmax_t num, int *w_n_p);
-int count6(uintmax_t num, int *w_n_p);
+int count6(intmax_t num, int *w_n_p);
 
 int nothing(char *s, int count);
 int go_to_the_end_of_width(int i, int *w_n_p);
