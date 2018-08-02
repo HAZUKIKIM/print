@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   width.c                                            :+:      :+:    :+:   */
+/*   count_characters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/18 15:54:36 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/08/01 14:06:19 by hmiyake          ###   ########.fr       */
+/*   Created: 2018/07/31 10:13:06 by hmiyake           #+#    #+#             */
+/*   Updated: 2018/08/01 14:03:42 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	width(const char *str, int i, va_list ap)
+int	count1(wchar_t *w)
 {
-	int	num;
+	int i;
 
-	num = 0;
-	if (str[i] == '*')
-		num = va_arg(ap, int);
-	while (str[i] >= '0' && str[i] <= '9')
+	i = 0;
+	if (w)
 	{
-		num = num * 10 + (str[i] - 48);
-		i++;
+		while (w[i] != '\0')
+			i++;
+		return (i);
 	}
-	return (num);
+	else
+		return (6);
 }
 
-int	skip_width(const char *str, int i)
+int	count2(char *s)
 {
-	while (str[i] == '*' || (str[i] >= '0' && str[i] <= '9'))
-		i++;
-	return (i);
+	int i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i] != '\0')
+			i++;
+		return (i);
+	}
+	else
+		return (6);
 }

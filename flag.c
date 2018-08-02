@@ -6,60 +6,77 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 15:52:46 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/07/18 15:54:08 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/08/01 15:29:01 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void initialize_save_f(char *save_f)
+void	initialize_save_f(char *save_f)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < 5)
-    {
-        save_f[i] = 0;
-        i++;
-    }
+	i = 0;
+	while (i < 5)
+	{
+		save_f[i] = 0;
+		i++;
+	}
 }
 
-int checksave(char *save, char c)
+char	*flag(const char *str, char *save_f, int i)
 {
-    int h;
-    
-    h = 0;
-    while (h < 5)
-    {
-        if (save[h] == c)
-            return(1);
-        h++;
-    }
-    return (0);
+	int	h;
+
+	h = 0;
+	save_f = (char *)malloc(sizeof(char) * 5);
+	initialize_save_f(save_f);
+	while (str[i] == '#' || str[i] == '0' || str[i] == '+'
+			|| str[i] == '-' || str[i] == ' ')
+	{
+		if (!flag_check(save_f, str[i]))
+		{
+			save_f[h] = str[i];
+			h++;
+		}
+		i++;
+	}
+	return (save_f);
 }
 
-char *flag(const char *str, char *save_f, int i)
+int		put_flag(char *save_f, int i)
 {
-    int h;
-    
-    h = 0;
-    save_f = (char *)malloc(sizeof(char) * 5);
-    initialize_save_f(save_f);
-    while (str[i] == '#' || str[i] == '0' || str[i] == '+' || str[i] == '-' || str[i] == ' ')
-    {
-        if (!checksave(save_f, str[i]))
-        {
-            save_f[h] = str[i];
-            h++;
-        }
-        i++;
-    }
-    return(save_f);
+	if (flag_check(save_f, '+'))
+	{
+		ft_putchar('+');
+		i++;
+	}
+	else if (flag_check(save_f, ' '))
+	{
+		ft_putchar(' ');
+		i++;
+	}
+	return (i);
 }
 
-int skip_flag(const char *str, int i)
+int		skip_flag(const char *str, int i)
 {
-    while (str[i] == '#' || str[i] == '0' || str[i] == '+' || str[i] == '-' || str[i] == ' ')
-        i++;
-    return (i);
+	while (str[i] == '#' || str[i] == '0' || str[i] == '+'
+			|| str[i] == '-' || str[i] == ' ')
+		i++;
+	return (i);
+}
+
+int		flag_check(char *save_f, char flag)
+{
+	int i;
+
+	i = 0;
+	while (i < 5)
+	{
+		if (save_f[i] == flag)
+			return (1);
+		i++;
+	}
+	return (0);
 }

@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   width.c                                            :+:      :+:    :+:   */
+/*   small_s_l_related.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/18 15:54:36 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/08/01 14:06:19 by hmiyake          ###   ########.fr       */
+/*   Created: 2018/07/23 12:41:11 by hmiyake           #+#    #+#             */
+/*   Updated: 2018/08/01 18:47:31 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	width(const char *str, int i, va_list ap)
+int		nothing_l(wchar_t *w, int count)
 {
-	int	num;
-
-	num = 0;
-	if (str[i] == '*')
-		num = va_arg(ap, int);
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10 + (str[i] - 48);
-		i++;
-	}
-	return (num);
+	if (w)
+		put_st(w);
+	else
+		put_str("(null)");
+	return (count);
 }
 
-int	skip_width(const char *str, int i)
+int		increase_together_l(wchar_t *a, wchar_t *w, int i)
 {
-	while (str[i] == '*' || (str[i] >= '0' && str[i] <= '9'))
-		i++;
+	a[i] = w[i];
+	i++;
 	return (i);
+}
+
+int		fill_with_space(wchar_t *a, int i)
+{
+	a[i] = ' ';
+	i--;
+	return (i);
+}
+
+wchar_t	*malloc_a_and_put_null_l(wchar_t *a, int *w_n_p)
+{
+	a = (wchar_t *)malloc(sizeof(wchar_t) * (w_n_p[0] + 1));
+	a[w_n_p[0]] = '\0';
+	return (a);
 }

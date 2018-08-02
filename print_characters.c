@@ -1,35 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   width.c                                            :+:      :+:    :+:   */
+/*   print_characters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/18 15:54:36 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/08/01 14:06:19 by hmiyake          ###   ########.fr       */
+/*   Created: 2018/07/31 10:42:22 by hmiyake           #+#    #+#             */
+/*   Updated: 2018/08/01 14:58:44 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	width(const char *str, int i, va_list ap)
+void	ft_putchar(char c)
 {
-	int	num;
-
-	num = 0;
-	if (str[i] == '*')
-		num = va_arg(ap, int);
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10 + (str[i] - 48);
-		i++;
-	}
-	return (num);
+	write(1, &c, 1);
 }
 
-int	skip_width(const char *str, int i)
+wchar_t	*put_st(wchar_t *w)
 {
-	while (str[i] == '*' || (str[i] >= '0' && str[i] <= '9'))
+	int i;
+
+	i = 0;
+	while (w[i] != '\0')
+	{
+		ft_putchar(w[i]);
 		i++;
+	}
+	return (w);
+}
+
+char	*put_str(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (str);
+}
+
+int		put_space(int i)
+{
+	ft_putchar(' ');
+	i++;
+	return (i);
+}
+
+int		put_zero(int i)
+{
+	ft_putchar('0');
+	i++;
 	return (i);
 }

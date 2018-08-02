@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   width.c                                            :+:      :+:    :+:   */
+/*   capital_s.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/18 15:54:36 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/08/01 14:06:19 by hmiyake          ###   ########.fr       */
+/*   Created: 2018/07/23 14:22:45 by hmiyake           #+#    #+#             */
+/*   Updated: 2018/08/01 14:41:17 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	width(const char *str, int i, va_list ap)
+int	specifier_capital_s(va_list ap, char *save_f, int *w_n_p)
 {
-	int	num;
+	wchar_t	*w;
+	int		i;
 
-	num = 0;
-	if (str[i] == '*')
-		num = va_arg(ap, int);
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = num * 10 + (str[i] - 48);
-		i++;
-	}
-	return (num);
-}
-
-int	skip_width(const char *str, int i)
-{
-	while (str[i] == '*' || (str[i] >= '0' && str[i] <= '9'))
-		i++;
+	w = NULL;
+	if (flag_check(save_f, '-'))
+		i = minus_n_l_2(ap, w, w_n_p);
+	else
+		i = no_minus_n_l_2(ap, w, w_n_p);
 	return (i);
 }
