@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 12:41:11 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/08/01 18:47:31 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/08/01 22:58:23 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ int		fill_with_space(wchar_t *a, int i)
 {
 	a[i] = ' ';
 	i--;
+	return (i);
+}
+
+int		fill_with_space_2(wchar_t *a, int i)
+{
+	a[i] = ' ';
+	i++;
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 14:16:24 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/08/01 15:28:28 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/08/01 22:59:04 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ int	m_n_l_w_is_biggest(wchar_t *w, int *w_n_p, int count, wchar_t *a)
 		while (i < count)
 			i = increase_together_l(a, w, i);
 		while (i < w_n_p[0])
-			i = fill_with_space(a, i);
+			i = fill_with_space_2(a, i);
 	}
 	else
 	{
 		while (i < w_n_p[1])
 			i = increase_together_l(a, w, i);
 		while (i < w_n_p[0])
-			i = fill_with_space(a, i);
+			i = fill_with_space_2(a, i);
 	}
 	a[i] = '\0';
 	put_and_free(a);
@@ -52,7 +52,7 @@ int	m_n_l_p_is_biggest(wchar_t *w, int *w_n_p, int count, wchar_t *a)
 		while (i < count)
 			i = increase_together_l(a, w, i);
 		while (i < w_n_p[0])
-			i = fill_with_space(a, i);
+			i = fill_with_space_2(a, i);
 		a[i] = '\0';
 		put_and_free(a);
 	}
@@ -76,7 +76,7 @@ int	m_n_l_c_is_biggest(wchar_t *w, int *w_n_p, int count, wchar_t *a)
 		while (i < w_n_p[1])
 			i = increase_together_l(a, w, i);
 		while (i < w_n_p[0])
-			i = fill_with_space(a, i);
+			i = fill_with_space_2(a, i);
 		a[w_n_p[0]] = '\0';
 	}
 	else

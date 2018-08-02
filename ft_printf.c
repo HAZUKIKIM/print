@@ -6,130 +6,101 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 22:17:58 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/08/01 22:09:59 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/08/02 00:50:11 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	c_to_x(va_list ap, char *save_f, int *w_n_p, char *save_l, int count, const char *str, int i)
+int	c_to_x(va_list ap, char **save, int *w_n_p, const char *str)
 {
-	if (str[i] == 'c')
-		count += specifier_small_c(ap, save_f, w_n_p, save_l);
-	else if (str[i] == 'C')
-		count += specifier_capital_c(ap, save_f, w_n_p);
-	else if (str[i] == 's')
-		count += specifier_small_s(ap, save_f, w_n_p, save_l);
-	else if (str[i] == 'S')
-		count += specifier_capital_s(ap, save_f, w_n_p);
-	else if (str[i] == 'd')
-		count += specifier_small_d(ap, save_f, w_n_p, save_l);
-	else if (str[i] == 'D')
-		count += specifier_capital_d(ap, save_f, w_n_p);
-	else if (str[i] == 'x')
-		count += specifier_small_x(ap, save_f, w_n_p, save_l);
-	else if (str[i] == 'X')
-		count += specifier_capital_x(ap, save_f, w_n_p, save_l);
-	return (count);
+	if (str[w_n_p[3]] == 'c')
+		w_n_p[2] += specifier_small_c(ap, save[0], w_n_p, save[1]);
+	else if (str[w_n_p[3]] == 'C')
+		w_n_p[2] += specifier_capital_c(ap, save[0], w_n_p);
+	else if (str[w_n_p[3]] == 's')
+		w_n_p[2] += specifier_small_s(ap, save[0], w_n_p, save[1]);
+	else if (str[w_n_p[3]] == 'S')
+		w_n_p[2] += specifier_capital_s(ap, save[0], w_n_p);
+	else if (str[w_n_p[3]] == 'd')
+		w_n_p[2] += specifier_small_d(ap, save[0], w_n_p, save[1]);
+	else if (str[w_n_p[3]] == 'D')
+		w_n_p[2] += specifier_capital_d(ap, save[0], w_n_p);
+	else if (str[w_n_p[3]] == 'x')
+		w_n_p[2] += specifier_small_x(ap, save[0], w_n_p, save[1]);
+	else if (str[w_n_p[3]] == 'X')
+		w_n_p[2] += specifier_capital_x(ap, save[0], w_n_p, save[1]);
+	return (w_n_p[2]);
 }
 
-int	o_to_percentage(va_list ap, char *save_f, int *w_n_p, char *save_l, int count, const char *str, int i)
+int	o_to_percentage(va_list ap, char **save, int *w_n_p, const char *str)
 {
-	if (str[i] == 'o')
-		count += specifier_small_o(ap, save_f, w_n_p, save_l);
-	else if (str[i] == 'O')
-		count += specifier_capital_o(ap, save_f, w_n_p);
-	else if (str[i] == 'u')
-		count += specifier_small_u(ap, save_f, w_n_p, save_l);
-	else if (str[i] == 'U')
-		count += specifier_capital_u(ap, save_f, w_n_p);
-	else if (str[i] == 'i')
-		count += specifier_small_d(ap, save_f, w_n_p, save_l);
-	else if (str[i] == 'p')
-		count += specifier_small_p(ap, save_f, w_n_p);
-	else if (str[i] == '%')
-		count += specifier_percentage(save_f, w_n_p);
-	return (count);
+	if (str[w_n_p[3]] == 'o')
+		w_n_p[2] += specifier_small_o(ap, save[0], w_n_p, save[1]);
+	else if (str[w_n_p[3]] == 'O')
+		w_n_p[2] += specifier_capital_o(ap, save[0], w_n_p);
+	else if (str[w_n_p[3]] == 'u')
+		w_n_p[2] += specifier_small_u(ap, save[0], w_n_p, save[1]);
+	else if (str[w_n_p[3]] == 'U')
+		w_n_p[2] += specifier_capital_u(ap, save[0], w_n_p);
+	else if (str[w_n_p[3]] == 'i')
+		w_n_p[2] += specifier_small_d(ap, save[0], w_n_p, save[1]);
+	else if (str[w_n_p[3]] == 'p')
+		w_n_p[2] += specifier_small_p(ap, save[0], w_n_p);
+	else if (str[w_n_p[3]] == '%')
+		w_n_p[2] += specifier_percentage(save[0], w_n_p);
+	return (w_n_p[2]);
+}
+
+int	specifier(va_list ap, char **save, int *w_n_p, const char *str)
+{
+	if (str[w_n_p[3]] == 'c' || str[w_n_p[3]] == 'C'
+	|| str[w_n_p[3]] == 's' || str[w_n_p[3]] == 'S'
+	|| str[w_n_p[3]] == 'd' || str[w_n_p[3]] == 'D'
+	|| str[w_n_p[3]] == 'x' || str[w_n_p[3]] == 'X')
+		w_n_p[2] = c_to_x(ap, save, w_n_p, str);
+	else
+		w_n_p[2] = o_to_percentage(ap, save, w_n_p, str);
+	return (w_n_p[2]);
+}
+
+int	percentage(va_list ap, char **save, int *w_n_p, const char *str)
+{
+	w_n_p[3]++;
+	save[0] = flag(str, save[0], (w_n_p[3]));
+	w_n_p[3] = skip_flag(str, w_n_p[3]);
+	w_n_p[0] = width(str, w_n_p[3], ap);
+	w_n_p[3] = skip_width(str, w_n_p[3]);
+	w_n_p[1] = precision(str, w_n_p[3], ap);
+	w_n_p[3] = skip_precision(str, w_n_p[3]);
+	save[1] = length(str, save[1], w_n_p[3]);
+	w_n_p[3] = skip_length(str, w_n_p[3]);
+	w_n_p[2] = specifier(ap, save, w_n_p, str);
+	free(save[0]);
+	free(save[1]);
+	return (w_n_p[2]);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
-	char	*save_f;
-	int		w_n_p[2];
-	char	*save_l;
+	int		w_n_p[4];
 	va_list	ap;
-	int		count;
+	char	*save[2];
 
-	i = 0;
-	count = 0;
+	w_n_p[2] = 0;
+	w_n_p[3] = 0;
 	va_start(ap, str);
-	save_f = NULL;
-	save_l = NULL;
-	while (str[i] != '\0')
+	while (str[w_n_p[3]] != '\0')
 	{
-		if (str[i] != '%')
+		if (str[w_n_p[3]] != '%')
 		{
-			ft_putchar(str[i]);
-			count++;
+			ft_putchar(str[w_n_p[3]]);
+			w_n_p[2]++;
 		}
-		if (str[i] == '%')
-		{
-			i++;
-			save_f = flag(str, save_f, i);
-			i = skip_flag(str, i);
-			w_n_p[0] = width(str, i, ap);
-			i = skip_width(str, i);
-			w_n_p[1] = precision(str, i, ap);
-			i = skip_precision(str, i);
-			save_l = length(str, save_l, i);
-			i = skip_length(str, i);
-			if (str[i] == 'c' || str[i] == 'C' || str[i] == 's' || str[i] == 'S'
-			|| str[i] == 'd' || str[i] == 'D' || str[i] == 'x' || str[i] == 'X')
-				count = c_to_x(ap, save_f, w_n_p, save_l, count, str, i);
-			else
-				count = o_to_percentage(ap, save_f, w_n_p, save_l, count, str, i);
-			free(save_l);
-			free(save_f);
-		}
-		i++;
+		if (str[w_n_p[3]] == '%')
+			percentage(ap, save, w_n_p, str);
+		w_n_p[3]++;
 	}
 	va_end(ap);
-	return (count);
+	return (w_n_p[2]);
 }
-
-// int	main(void)
-// {
-//   ft_printf("\n");
-//   ft_printf("%%\n");
-//   ft_printf("%d\n", 42);
-//   ft_printf("%d%d\n", 42, 41);
-//   ft_printf("%d%d%d\n", 42, 43, 44);
-//   ft_printf("%ld\n", 2147483647);
-//   ft_printf("%lld\n", 9223372036854775807);
-//   ft_printf("%x\n", 505);
-//   ft_printf("%X\n", 505);
-//   ft_printf("%p\n", &ft_printf);
-//   ft_printf("%20.15d\n", 54321);
-//   ft_printf("%-10d\n", 3);
-//   ft_printf("% d\n", 3);
-//   ft_printf("%+d\n", 3);
-//   ft_printf("%010d\n", 1);
-//   ft_printf("%hhd\n", 0);
-//   ft_printf("%jd\n", 9223372036854775807);
-//   ft_printf("%zd\n", 4294967295);
-//   ft_printf("%\n");
-//   ft_printf("%U\n", 4294967295);
-//   ft_printf("%u\n", 4294967295);
-//   ft_printf("%o\n", 40);
-//   ft_printf("%%#08x\n", 42);
-//   ft_printf("%x\n", 1000);
-//   ft_printf("%#X\n", 1000);
-//   ft_printf("%s\n", NULL);
-//   ft_printf("%S\n", L"ݗݜशব");
-//   ft_printf("%s%s\n", "test", "test");
-//   ft_printf("%s%s%s\n", "test", "test", "test");
-//   ft_printf("%C\n", 15000);
-//   while (1);
-//   return (0);
-// }

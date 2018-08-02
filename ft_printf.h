@@ -6,7 +6,7 @@
 /*   By: hmiyake <hmiyake@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 15:49:24 by hmiyake           #+#    #+#             */
-/*   Updated: 2018/08/01 18:54:02 by hmiyake          ###   ########.fr       */
+/*   Updated: 2018/08/02 00:51:44 by hmiyake          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@
 # include <wchar.h>
 # include <stdint.h>
 
-int			c_to_x(va_list ap, char *save_f, int *w_n_p, char *save_l, int count, const char *str, int i);
-int			o_to_percentage(va_list ap, char *save_f, int *w_n_p, char *save_l, int count, const char *str, int i);
+int			characters(int *w_n_p, const char *str);
+int			increase_and_skip(int *w_n_p, const char *str);
+void		initialize_save(int *w_n_p);
+int			c_to_x(va_list ap, char **save, int *w_n_p, const char *str);
+int			o_to_percentage(va_list ap, char **save,
+int *w_n_p, const char *str);
+int			specifier(va_list ap, char **save, int *w_n_p, const char *str);
 int			ft_printf(const char *str, ...);
 
 int			specifier_capital_c(va_list ap, char *save_f, int *w_n_p);
@@ -85,6 +90,7 @@ int			specifier_small_p(va_list ap, char *save_f, int *w_n_p);
 int			nothing_l(wchar_t *w, int count);
 int			increase_together_l(wchar_t *a, wchar_t *w, int i);
 int			fill_with_space(wchar_t *a, int i);
+int			fill_with_space_2(wchar_t *a, int i);
 wchar_t		*malloc_a_and_put_null_l(wchar_t *a, int *w_n_p);
 int			no_m_n_l_w_is_biggest(wchar_t *w, int *w_n_p,
 int count, wchar_t *a);
